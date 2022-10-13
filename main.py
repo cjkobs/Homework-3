@@ -24,4 +24,14 @@ bnds = ((0, 1000), (0, 1000))
 res = minimize(pres, A_init, method='SLSQP', bounds=bnds, constraints=constr)
 
 print(res.x)
-#why
+
+# so the error I get on my computer is apparently something about access which, I don't know man I've looked up some
+# stuff and most of it is about C++ which I've been reading up on but I really don't like coding. Which sucks since
+# the field which I've enjoyed most in college requires coding to do anything of substance in it. Anyway, whatever you
+# input for the initial conditions is what it thinks A12 and A21 are which is obviously wrong. As a chemical engineer
+# I've seen problems like this before but coding them is another matter.
+
+# For part 3, all I have to say is no because my model kind of sucks. It was hardcoded with bad intentions. I want to
+# see if a simpler version of this would run but I'm not holding my breath. It would be nice to see what the code should
+# look like but I understand the risks with academic dishonesty if the code were to be published. Anyway, my model
+# doesn't match the data for obvious reasons. See ya next time.
