@@ -23,3 +23,4 @@ bnds = ((0, 1000), (0, 1000))
 res = minimize(pres, A_init, method='SLSQP', bounds=bnds, constraints=constr)
 
 print(res.A)
+#why
