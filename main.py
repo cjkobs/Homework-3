@@ -4,7 +4,7 @@ import math
 
 # function, pres , that we want to minimize. This function is the pressure function @x1=x2=0.5
 # the values of p1_sat and p2_sat were calculated to be 17.473 and 28.824 respectively
-# also, A12 will be represented as A[1] while A21 will be A[2]
+# also, A12 will be represented as a[0] while A21 will be a[1]
 pres = lambda a: ((0.5 * math.exp(a[0] * ((a[1] * 0.5) / (a[0] * 0.5 + a[1] * 0.5)) ** 2)) * 17.473 +
                   (0.5 * math.exp(a[1] * ((a[0] * 0.5) / (a[1] * 0.5 + a[0] * 0.5)) ** 2)) * 28.824 - 36.7) ** 2
 # initial guesses for A12 and A21
@@ -36,6 +36,8 @@ constr = ({"type": "eq", "pres": lambda a: ((0.1 * math.exp(
             (0.1 * math.exp(a[1] * ((a[0] * 0.9) / (a[1] * 0.1 + a[0] * 0.1)) ** 2)) * 28.824 - 27.7) ** 2}
           )
 
-bnds=
-res = minimize(pres, A_init, method='SLSQP', constraints=constr)
+bnds = ((0, 1000), (0, 1000))
+
+res = minimize(pres, A_init, method='SLSQP', bounds=bnds, constraints=constr)
+
 print(res.A)
